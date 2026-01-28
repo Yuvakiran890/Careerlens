@@ -15,17 +15,23 @@ from googleapiclient.discovery import build
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from werkzeug.utils import secure_filename
+from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
 
-# Download NLTK data
-try:
-    nltk.download("punkt", quiet=True)
-    nltk.download("stopwords", quiet=True)
-    nltk.download("punkt_tab", quiet=True)
-except Exception as e:
-    print(f"NLTK Download Warning: {e}")
+import threading
+
+# Download NLTK data (Non-blocking for production)
+def initialize_nltk():
+    try:
+        nltk.download("punkt", quiet=True)
+        nltk.download("stopwords", quiet=True)
+        nltk.download("punkt_tab", quiet=True)
+    except Exception as e:
+        print(f"NLTK Download Warning: {e}")
+
+threading.Thread(target=initialize_nltk).start()
 
 app = Flask(__name__, static_url_path='', static_folder='.')
 CORS(app)
@@ -185,7 +191,10 @@ def signup():
         })
         return jsonify({"success": True, "user": response.user.id if response.user else "Pending"})
     except Exception as e:
-        return jsonify({"success": False, "message": str(e)})
+        error_msg = str(e)
+        if "email rate limit exceeded" in error_msg.lower():
+            error_msg = "Signup limit reached for this hour. Please disable 'Confirm Email' in your Supabase Dashboard settings to bypass this limit."
+        return jsonify({"success": False, "message": error_msg})
 
 @app.route("/login", methods=["POST", "OPTIONS"])
 def login():
@@ -371,6 +380,9 @@ def analyze_resume():
     except Exception as e:
         if os.path.exists(filepath): os.remove(filepath)
         return jsonify({"success": False, "message": str(e)})
+
+@app.route('/health')
+def health(): return jsonify({"status": "healthy"}), 200
 
 @app.route('/')
 def s_index(): return send_from_directory('.', 'index.html')
