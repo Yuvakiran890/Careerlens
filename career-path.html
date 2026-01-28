@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerLens | Career Path Roadmap</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50: '#eff6ff', 100: '#dbeafe', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' },
+                        secondary: '#7c3aed',
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Outfit', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans text-gray-900 leading-relaxed">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-gray-200/50 h-20 flex items-center px-6">
+        <div class="max-w-7xl mx-auto w-full flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center text-white shadow-lg"><i
+                        data-lucide="scan-line" class="w-6 h-6"></i></div>
+                <span class="font-display text-2xl font-bold">Career<span class="text-primary-600">Lens</span></span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-bold text-gray-600">
+                <a href="index.html" class="hover:text-primary-600 transition-colors">Home</a>
+                <a href="analyzer.html" class="hover:text-primary-600 transition-colors">Analyzer</a>
+                <a href="career-path.html" class="text-primary-600">Career Path</a>
+                <a href="about.html" class="hover:text-primary-600 transition-colors">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-40 pb-32 max-w-5xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h1 class="font-display text-6xl font-extrabold mb-6 tracking-tight leading-none">Your Professional
+                <br /><span class="gradient-text">Success Roadmap</span>
+            </h1>
+            <p class="text-xl text-gray-500 max-w-3xl mx-auto italic font-medium">Visualization and guidance for your
+                professional journey from entry-level to industry leader.</p>
+        </div>
+
+        <!-- CAREER STAGES -->
+        <div
+            class="space-y-12 relative before:absolute before:left-1/2 before:top-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-primary-600 before:to-secondary before:hidden md:before:block">
+
+            <div class="relative flex flex-col md:flex-row items-center gap-12 group">
+                <div class="md:w-1/2 text-center md:text-right hidden md:block">
+                    <h3 class="text-2xl font-bold text-gray-900">Foundational Stage</h3>
+                    <p class="text-gray-500 font-medium">Focus on core skills, academic excellence, and initial
+                        internships.</p>
+                </div>
+                <div
+                    class="w-12 h-12 rounded-full gradient-bg z-10 flex items-center justify-center text-white font-bold ring-8 ring-white shrink-0 group-hover:scale-125 transition-transform">
+                    1</div>
+                <div class="md:w-1/2 glass p-8 rounded-3xl shadow-xl space-y-3">
+                    <div class="flex items-center gap-3 text-primary-600 mb-2">
+                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                        <span class="text-xs font-black uppercase tracking-widest">Beginner</span>
+                    </div>
+                    <h3 class="text-xl font-bold md:hidden">Foundational Stage</h3>
+                    <p class="text-gray-600 font-semibold">Master the basics of your industry. Build a clean,
+                        entry-level resume using CareerLens to ensure your key academic projects stand out.</p>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row-reverse items-center gap-12 group">
+                <div class="md:w-1/2 text-center md:text-left hidden md:block">
+                    <h3 class="text-2xl font-bold text-gray-900">Growth Catalyst</h3>
+                    <p class="text-gray-500 font-medium">Acquiring specialized certifications and 2-5 years of industry
+                        experience.</p>
+                </div>
+                <div
+                    class="w-12 h-12 rounded-full gradient-bg z-10 flex items-center justify-center text-white font-bold ring-8 ring-white shrink-0 group-hover:scale-125 transition-transform">
+                    2</div>
+                <div class="md:w-1/2 glass p-8 rounded-3xl shadow-xl space-y-3">
+                    <div class="flex items-center gap-3 text-secondary mb-2">
+                        <i data-lucide="trending-up" class="w-6 h-6"></i>
+                        <span class="text-xs font-black uppercase tracking-widest">Intermediate</span>
+                    </div>
+                    <h3 class="text-xl font-bold md:hidden">Growth Catalyst</h3>
+                    <p class="text-gray-600 font-semibold">Optimize for specialized roles. Use our Skill Matching engine
+                        to find the exact gaps between your experience and senior-level job descriptions.</p>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center gap-12 group">
+                <div class="md:w-1/2 text-center md:text-right hidden md:block">
+                    <h3 class="text-2xl font-bold text-gray-900">Strategic Leader</h3>
+                    <p class="text-gray-500 font-medium">Focus on leadership, strategic impact, and mentorship.</p>
+                </div>
+                <div
+                    class="w-12 h-12 rounded-full gradient-bg z-10 flex items-center justify-center text-white font-bold ring-8 ring-white shrink-0 group-hover:scale-125 transition-transform">
+                    3</div>
+                <div class="md:w-1/2 glass p-8 rounded-3xl shadow-xl space-y-3">
+                    <div class="flex items-center gap-3 text-indigo-600 mb-2">
+                        <i data-lucide="crown" class="w-6 h-6"></i>
+                        <span class="text-xs font-black uppercase tracking-widest">Advanced</span>
+                    </div>
+                    <h3 class="text-xl font-bold md:hidden">Strategic Leader</h3>
+                    <p class="text-gray-600 font-semibold">Highlighting impact over tasks. At this stage, CareerLens
+                        helps you refine your executive voice and formatting for high-level vetting.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <section class="mt-32 glass p-12 rounded-[40px] shadow-2xl bg-white/40">
+            <h3 class="text-3xl font-extrabold mb-10 text-center">Skill Mapping Strategies</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <h4 class="font-bold text-primary-600">Horizontal Scaling</h4>
+                    <p class="text-sm text-gray-600 font-medium">Learn adjacent skills to become a "T-Shaped"
+                        professional. If you are a frontend developer, pick up UI/UX basics or backend fundamentals.</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-bold text-secondary">Vertical Specialization</h4>
+                    <p class="text-sm text-gray-600 font-medium">Go deep into one niche. Become the leading expert in a
+                        specific industry or technology to increase your market value significantly.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center text-gray-400 text-sm">
+            <p>© 2026 CareerLens AI. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

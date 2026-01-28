@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerLens | AI-Powered Career Intelligence</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>window.tailwindStyleSheet = true;</script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50: '#eff6ff', 100: '#dbeafe', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' },
+                        secondary: '#7c3aed',
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Outfit', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 font-sans selection:bg-primary-100">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-gray-200/50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center text-white shadow-lg"><i
+                        data-lucide="scan-line" class="w-6 h-6"></i></div>
+                <span class="font-display text-2xl font-bold tracking-tight">Career<span
+                        class="text-primary-600">Lens</span></span>
+            </div>
+
+            <div class="flex items-center gap-8">
+                <div class="hidden lg:flex items-center gap-8 text-sm font-bold text-gray-600">
+                    <a href="analyzer.html" class="hover:text-primary-600 transition-colors">Resume Analyzer</a>
+                    <a href="career-path.html" class="hover:text-primary-600 transition-colors">Career Pathways</a>
+                    <a href="about.html" class="hover:text-primary-600 transition-colors">About Us</a>
+                    <a href="admin.html"
+                        class="text-primary-600 font-black flex items-center gap-2 px-3 py-1 bg-primary-50 rounded-lg hover:bg-primary-100 transition-all">
+                        <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Admin
+                    </a>
+                </div>
+                <div id="nav-auth" class="flex items-center gap-4 border-l border-gray-200 pl-4"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="pt-48 pb-32 relative overflow-hidden">
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-primary-100/40 blur-[150px] rounded-full -z-10">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-gray-100 mb-8">
+                <span class="flex h-2 w-2 rounded-full bg-green-500"></span>
+                <span class="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Next-Gen AI Recruiting
+                    Engine</span>
+            </div>
+            <h1 class="font-display text-6xl md:text-8xl font-extrabold mb-8 tracking-tight leading-[1.05]">
+                Unlock Your <br />
+                <span class="gradient-text">Potential</span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
+                The world's most advanced AI-driven platform for resume optimization, skill mapping, and strategic
+                career growth.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="analyzer.html"
+                    class="px-10 py-5 gradient-bg text-white rounded-[2rem] font-bold text-lg shadow-2xl shadow-primary-600/30 hover:scale-105 transition-all">Deep
+                    Analysis Now →</a>
+                <a href="career-path.html"
+                    class="px-10 py-5 bg-white border border-gray-200 text-gray-900 rounded-[2rem] font-bold text-lg hover:bg-gray-50 transition-all">Explore
+                    Pathways</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- FEATURES SECTION -->
+    <section class="max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-3 gap-8">
+        <div class="glass p-10 rounded-[3rem] space-y-6 hover:-translate-y-2 transition-transform duration-500">
+            <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-3xl flex items-center justify-center"><i
+                    data-lucide="zap" class="w-8 h-8"></i></div>
+            <h3 class="text-2xl font-bold">Instant Scoring</h3>
+            <p class="text-gray-500 font-medium">Get a 100-point match score for any job description in seconds using
+                Gemini 1.5 Flash.</p>
+        </div>
+        <div class="glass p-10 rounded-[3rem] space-y-6 hover:-translate-y-2 transition-transform duration-500">
+            <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-3xl flex items-center justify-center"><i
+                    data-lucide="map" class="w-8 h-8"></i></div>
+            <h3 class="text-2xl font-bold">Skill Gap Analysis</h3>
+            <p class="text-gray-500 font-medium">Identify the exact keywords and certifications missing from your
+                profile to beat the ATS.</p>
+        </div>
+        <div class="glass p-10 rounded-[3rem] space-y-6 hover:-translate-y-2 transition-transform duration-500">
+            <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-3xl flex items-center justify-center"><i
+                    data-lucide="graduation-cap" class="w-8 h-8"></i></div>
+            <h3 class="text-2xl font-bold">Curated Learning</h3>
+            <p class="text-gray-500 font-medium">Receive personalized YouTube courses and certification links to master
+                missing skills.</p>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="max-w-7xl mx-auto px-6 py-32">
+        <div class="gradient-bg rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden shadow-3xl">
+            <div class="absolute inset-0 bg-white/5 backdrop-blur-3xl"></div>
+            <div class="relative z-10 space-y-8">
+                <h2 class="text-4xl md:text-6xl font-black tracking-tight">Ready to Land Your <br />Dream Opportunity?
+                </h2>
+                <p class="text-xl opacity-80 max-w-xl mx-auto font-medium">Join thousands of professionals who have
+                    optimized their careers with CareerLens.</p>
+                <div class="pt-4">
+                    <a href="signup.html"
+                        class="px-12 py-5 bg-white text-primary-600 rounded-[2rem] font-black text-xl hover:scale-105 transition-all inline-block shadow-2xl">Create
+                        Free Account</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-24">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-16">
+            <div class="col-span-2">
+                <div class="flex items-center gap-2 mb-8">
+                    <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center"><i
+                            data-lucide="scan-line" class="w-6 h-6"></i></div>
+                    <span class="font-display text-2xl font-bold">CareerLens</span>
+                </div>
+                <p class="text-gray-400 max-w-sm mb-12">Empowering job seekers with AI-driven insights to optimize
+                    resumes and bridge skill gaps for a brighter career future.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="twitter"
+                            class="w-6 h-6"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="linkedin"
+                            class="w-6 h-6"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="github"
+                            class="w-6 h-6"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs text-gray-500">Platform</h4>
+                <ul class="space-y-4 text-gray-400 font-medium text-sm">
+                    <li><a href="analyzer.html" class="hover:text-white transition-colors">AI Analyzer</a></li>
+                    <li><a href="career-path.html" class="hover:text-white transition-colors">Career Pathways</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors">Our Vision</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs text-gray-500">Resources</h4>
+                <ul class="space-y-4 text-gray-400 font-medium text-sm">
+                    <li><a href="support.html" class="hover:text-white transition-colors">Help Center</a></li>
+                    <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="admin.html"
+                            class="hover:text-white transition-colors text-primary-600 font-black">Portal Access</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-6 pt-20 mt-20 border-t border-white/5 text-center text-gray-600 text-[10px] font-bold uppercase tracking-widest">
+            © 2026 CareerLens AI Technologies. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        lucide.createIcons();
+
+        // --- Supabase Auto-Login Integration ---
+        async function initSupabase() {
+            try {
+                const res = await fetch("/supabase-config");
+                const config = await res.json();
+                const supabase = supabase.createClient(config.url, config.anon_key);
+
+                // Listen for session changes (like email confirmation redirect)
+                supabase.auth.onAuthStateChange(async (event, session) => {
+                    if (event === 'SIGNED_IN' && session) {
+                        localStorage.setItem("isLoggedIn", "true");
+                        localStorage.setItem("loggedInUser", session.user.email);
+                        // Clean URL from hashes
+                        window.history.replaceState(null, null, window.location.pathname);
+                        checkLoginStatus();
+                    }
+                });
+            } catch (err) {
+                console.error("Supabase Init Error:", err);
+            }
+        }
+
+        function checkLoginStatus() {
+            const user = localStorage.getItem("loggedInUser");
+            const navAuth = document.getElementById("nav-auth");
+            if (user) {
+                navAuth.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-primary-600"><i data-lucide="user" class="w-4 h-4"></i></div>
+                        <p class="font-bold text-gray-900 truncate max-w-[100px]">${user.split('@')[0]}</p>
+                        ${user === 'yuvamaster@gmail.com' ? `
+                            <a href="admin.html" class="flex items-center gap-2 p-2 hover:bg-primary-50 text-primary-600 rounded-lg transition-colors group" title="Admin Dashboard">
+                                <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                                <span class="text-xs font-bold uppercase tracking-wider hidden group-hover:block">Admin</span>
+                            </a>
+                        ` : ''}
+                        <button onclick="logout()" class="p-2 hover:bg-red-50 hover:text-red-500 rounded-lg transition-colors"><i data-lucide="log-out" class="w-4 h-4"></i></button>
+                    </div>
+                `;
+            } else {
+                navAuth.innerHTML = `
+                    <a href="login.html" class="font-bold text-gray-600 hover:text-primary-600 transition-colors">Sign in</a>
+                    <a href="signup.html" class="px-6 py-2.5 gradient-bg text-white rounded-xl font-bold shadow-lg">Get Started</a>
+                `;
+            }
+            lucide.createIcons();
+        }
+
+        function logout() {
+            localStorage.clear();
+            window.location.reload();
+        }
+
+        initSupabase();
+        checkLoginStatus();
+    </script>
+</body>
+
+</html>

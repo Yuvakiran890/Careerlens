@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerLens | Support</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50: '#eff6ff', 100: '#dbeafe', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' },
+                        secondary: '#7c3aed',
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Outfit', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans text-gray-900 leading-relaxed">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-gray-200/50 h-20 flex items-center px-6">
+        <div class="max-w-7xl mx-auto w-full flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center text-white shadow-lg"><i
+                        data-lucide="scan-line" class="w-6 h-6"></i></div>
+                <span class="font-display text-2xl font-bold">Career<span class="text-primary-600">Lens</span></span>
+            </div>
+            <a href="index.html"
+                class="text-sm font-bold text-gray-600 hover:text-primary-600 transition-colors">Home</a>
+        </div>
+    </nav>
+
+    <main class="pt-40 pb-20 max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h1 class="font-display text-5xl font-extrabold mb-6 tracking-tight leading-none">We're Here to <br /><span
+                    class="gradient-text">Help You Succeed</span></h1>
+            <p class="text-lg text-gray-500 max-w-2xl mx-auto">Have questions about your analysis? Need technical
+                support? Our team and AI are standing by.</p>
+        </div>
+
+        <section class="space-y-6 mb-20">
+            <h2 class="text-3xl font-extrabold text-center mb-12">Frequently Asked Questions</h2>
+
+            <div class="glass p-8 rounded-3xl shadow-xl space-y-3">
+                <h3 class="text-lg font-bold flex items-center gap-3"><i data-lucide="help-circle"
+                        class="w-5 h-5 text-primary-600"></i> Is the analysis free?</h3>
+                <p class="text-gray-600 font-medium">Yes, the basic core analysis is completely free for all verified
+                    users.</p>
+            </div>
+
+            <div class="glass p-8 rounded-3xl shadow-xl space-y-3">
+                <h3 class="text-lg font-bold flex items-center gap-3"><i data-lucide="help-circle"
+                        class="w-5 h-5 text-primary-600"></i> How accurate is the score?</h3>
+                <p class="text-gray-600 font-medium">The score is based on a complex algorithm that evaluates skill
+                    matching, experience relevance, and formatting standards compared to high-performing resumes in our
+                    dataset.</p>
+            </div>
+
+            <div class="glass p-8 rounded-3xl shadow-xl space-y-3">
+                <h3 class="text-lg font-bold flex items-center gap-3"><i data-lucide="help-circle"
+                        class="w-5 h-5 text-primary-600"></i> Can I analyze multiple resumes?</h3>
+                <p class="text-gray-600 font-medium">Absolutely! You can analyze as many resumes as you'd like to tailor
+                    your profile for different job roles.</p>
+            </div>
+        </section>
+
+        <section class="glass p-12 rounded-[40px] shadow-2xl text-center">
+            <h2 class="text-3xl font-extrabold mb-4">Still Need Help?</h2>
+            <p class="text-gray-500 mb-8">Reach out to our professional support team directly.</p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-gray-700">support@careerlens.ai</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center">
+                        <i data-lucide="message-square" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-gray-700">Live Chat Available</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-6 text-center text-gray-400 text-sm">
+            <p>© 2026 CareerLens AI. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

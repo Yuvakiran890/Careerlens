@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerLens | Privacy Policy</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50: '#eff6ff', 100: '#dbeafe', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' },
+                        secondary: '#7c3aed',
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Outfit', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 flex flex-col min-h-screen font-sans text-gray-900 leading-relaxed">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-gray-200/50 h-20 flex items-center px-6">
+        <div class="max-w-7xl mx-auto w-full flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center text-white shadow-lg"><i
+                        data-lucide="scan-line" class="w-6 h-6"></i></div>
+                <span class="font-display text-2xl font-bold">Career<span class="text-primary-600">Lens</span></span>
+            </div>
+            <a href="index.html" class="text-sm font-bold text-gray-600 hover:text-primary-600 transition-colors">Back
+                to Home</a>
+        </div>
+    </nav>
+
+    <main class="pt-40 pb-20 flex-grow max-w-4xl mx-auto px-6">
+        <div class="glass p-12 rounded-[40px] shadow-2xl">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="p-3 bg-green-100 text-green-600 rounded-2xl">
+                    <i data-lucide="shield-check" class="w-8 h-8"></i>
+                </div>
+                <h1 class="font-display text-4xl font-extrabold tracking-tight">Privacy Policy</h1>
+            </div>
+
+            <div class="space-y-8 text-gray-600">
+                <p class="font-bold text-gray-900 text-lg italic">At CareerLens, your professional information is
+                    treated with the highest level of security and confidentiality.</p>
+
+                <section class="space-y-3">
+                    <h2 class="text-xl font-bold text-gray-900">1. Data Collection</h2>
+                    <p>We only collect the data necessary to provide our services: your email address (for
+                        authentication) and the resumes/job descriptions you upload for analysis.</p>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-xl font-bold text-gray-900">2. How We Use Data</h2>
+                    <p>Your resumes are processed by our AI engine (Gemini) to generate insights. We do not use your
+                        personal data for training outside of the immediate analysis context.</p>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-xl font-bold text-gray-900">3. Storage & Security</h2>
+                    <p>We use industry-standard encryption for data at rest and in transit. CareerLens leverages
+                        Supabase for secure cloud storage and authentication management.</p>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-xl font-bold text-gray-900">4. Third-Party Services</h2>
+                    <p>We utilize Google Gemini (AI) and YouTube API (Learning Recommendations). These partners follow
+                        their own strict privacy standards to ensure your data stays safe.</p>
+                </section>
+
+                <div class="pt-8 border-t border-gray-200">
+                    <p class="text-sm font-bold text-gray-400 uppercase tracking-widest">Last Updated: January 2026</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center text-gray-400 text-sm">
+            <p>© 2026 CareerLens AI. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

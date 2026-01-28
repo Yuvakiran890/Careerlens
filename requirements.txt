@@ -1,0 +1,10 @@
+flask
+flask-cors
+python-dotenv
+supabase
+google-generativeai
+pdfplumber
+google-api-python-client
+werkzeug
+nltk
+gunicorn
