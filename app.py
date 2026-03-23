@@ -120,7 +120,13 @@ def calculate_ats_score(resume_text, job_description):
 
     jd_keywords = list(jd_keywords_set)[:30]
     
-    matched = [k for k in jd_keywords if k in resume_lower]
+    matched = []
+    for k in jd_keywords:
+        # Match exact word boundaries. Fixes the issue of "c" being matched inside "science".
+        pattern = r'\b' + re.escape(k) + r'(?!\w)'
+        if re.search(pattern, resume_lower):
+            matched.append(k)
+            
     missing = [k for k in jd_keywords if k not in matched]
     
     skill_score = (len(matched) / len(jd_keywords) * 40) if jd_keywords else 30
@@ -157,7 +163,7 @@ def calculate_ats_score(resume_text, job_description):
     }
 
 def get_cache_hash(resume_text, job_desc):
-    content = f"{resume_text.strip()}|{job_desc.strip()}"
+    content = f"{resume_text.strip()}|{job_desc.strip()}|v2"
     return hashlib.sha256(content.encode()).hexdigest()
 
 # --------------------------------------------------
