@@ -92,7 +92,33 @@ def calculate_ats_score(resume_text, job_description):
     # Extract more from JD (Nouns/Technical sounding words)
     jd_tokens = [w for w in jd_words if w not in stop_words]
     # Filter potential JD keywords (only those appearing frequently or in base list)
-    jd_keywords = list(set([w for w in jd_tokens if w in base_keywords or len(w) > 4]))[:20]
+    jd_keywords_set = set([w for w in jd_tokens if w in base_keywords or len(w) > 4])
+    
+    # Inject basic required skills based on the role requested
+    ROLE_SKILLS_MAP = {
+        "developer": ["c", "c++", "python", "java", "oops", "javascript", "sql", "git"],
+        "software engineer": ["c", "c++", "python", "java", "oops", "data structures", "algorithms"],
+        "software engine": ["c", "c++", "python", "java", "oops", "data structures", "algorithms"],
+        "data scientist": ["python", "machine learning", "data analysis", "sql", "tableau", "statistics"],
+        "data analy": ["sql", "excel", "tableau", "power bi", "python", "data analysis"],
+        "frontend": ["html", "css", "javascript", "react", "vue", "angular"],
+        "backend": ["python", "java", "node", "sql", "api", "docker", "aws"],
+        "fullstack": ["html", "css", "javascript", "react", "node", "python", "java", "sql", "api"],
+        "full stack": ["html", "css", "javascript", "react", "node", "python", "java", "sql", "api"],
+        "devops": ["aws", "docker", "kubernetes", "linux", "ci/cd", "azure", "jenkins"],
+        "cloud": ["aws", "azure", "gcp", "docker", "kubernetes", "linux"],
+        "manager": ["agile", "scrum", "project management", "leadership", "jira"]
+    }
+
+    for role, skills in ROLE_SKILLS_MAP.items():
+        if role in jd_lower:
+            jd_keywords_set.update(skills)
+            
+    # Default fallback if no specific role matched and few keywords were extracted
+    if len(jd_keywords_set) < 5:
+        jd_keywords_set.update(["python", "java", "javascript", "sql", "html", "css", "git", "oops"])
+
+    jd_keywords = list(jd_keywords_set)[:30]
     
     matched = [k for k in jd_keywords if k in resume_lower]
     missing = [k for k in jd_keywords if k not in matched]

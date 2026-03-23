@@ -72,6 +72,24 @@ def analyze_resume(file_bytes, job_desc):
     jd_text = job_desc.lower()
     resume_skills = {s for s in SKILL_LIST if s in resume_text_lower}
     jd_skills = {s for s in SKILL_LIST if s in jd_text}
+    
+    # Inject basic required skills based on the role requested
+    ROLE_SKILLS_MAP = {
+        "developer": ["python", "java", "javascript", "sql", "git"],
+        "software engineer": ["python", "java", "javascript", "sql", "git"],
+        "data scientist": ["python", "machine learning", "data science", "sql"],
+        "data analy": ["python", "sql", "data science"],
+        "frontend": ["html", "css", "javascript", "react"],
+        "backend": ["python", "java", "node", "sql"],
+        "fullstack": ["html", "css", "javascript", "react", "node", "python", "java", "sql"]
+    }
+
+    for role, skills in ROLE_SKILLS_MAP.items():
+        if role in jd_text:
+            jd_skills.update(skills)
+            
+    if len(jd_skills) == 0:
+        jd_skills.update(["python", "java", "javascript", "sql", "html", "css", "git"])
 
     matched_skills = list(resume_skills & jd_skills)
     missing_skills = list(jd_skills - resume_skills)
