@@ -136,12 +136,22 @@ def calculate_ats_score(resume_text, job_description):
     found_sections = [s for s in sections if s in resume_lower]
     section_score = (len(found_sections) / len(sections)) * 25
     
-    # 3. Experience Depth (20%) - Word count as proxy
-    words = resume_text.split()
-    if len(words) > 800: exp_score = 20
-    elif len(words) > 400: exp_score = 15
-    elif len(words) > 200: exp_score = 10
-    else: exp_score = 5
+    # 3. Experience Depth (15 points max) - Heuristic based on companies/roles count
+    # Try to extract the experience section to count roles accurately
+    exp_section = re.search(r'\b(?:experience|employment|work history)\b(.*?)(?:\beducation\b|\bskills\b|\bprojects\b|\bcertifications\b|\breferences\b|\Z)', resume_lower, re.DOTALL)
+    search_text = exp_section.group(1) if exp_section else resume_lower
+    
+    # Simple regex to find date ranges (e.g. Jan 2020 - Present, 2018-2020) which usually denote distinct roles/companies
+    date_pattern = r'((?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s*\d{4}|\b\d{4}\b)\s*(?:-|to|–|—)\s*((?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s*\d{4}|\b\d{4}\b|present|current|now)'
+    role_matches = re.findall(date_pattern, search_text)
+    company_count = len(role_matches)
+    
+    if company_count == 0:
+        exp_score = 5
+    elif company_count == 1:
+        exp_score = 10
+    else:
+        exp_score = 15
     
     # 4. Formatting/Grammar Mock (15%)
     has_bullets = resume_text.count('\n-') > 3 or resume_text.count('\n•') > 3
